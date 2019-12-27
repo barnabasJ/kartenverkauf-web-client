@@ -15,6 +15,13 @@ const Ticket = ({ ticket, onClick }) => {
   )
 }
 
+const calculateTotal = tickets =>
+  _.reduce(
+    _.compact(_.map(tickets, t => _.get(t, 'category.price'))),
+    (total, p) => total + p,
+    0
+  )
+
 const SelectedTickets = ({ tickets, onClick }) => {
   return (
     <div>
@@ -23,6 +30,10 @@ const SelectedTickets = ({ tickets, onClick }) => {
         {_.map(tickets, ticket => (
           <Ticket key={ticket.id} ticket={ticket} onClick={onClick} />
         ))}
+      </div>
+      <div>
+        <span style={{ marginRight: '5px' }}>Total</span>
+        <Price price={calculateTotal(tickets)} />
       </div>
     </div>
   )
