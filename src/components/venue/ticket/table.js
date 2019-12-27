@@ -1,13 +1,9 @@
 import _ from 'lodash'
 
-const categoryColors = {
-  1: '#80c3e8',
-  2: '#1433a9',
-  3: '#94b1ee'
-}
+const categoryColors = ['#5985c1', '#80c3e8', '#59afc1', '#94b1ee']
 
 const calcBackground = ticket => {
-  if (ticket.state == 'FREE') return categoryColors[ticket.category.id]
+  if (ticket.state == 'FREE') return categoryColors[ticket.category.id % categoryColors.length]
   if (ticket.state == 'RESERVED') return '#666666'
   if (ticket.state == 'SOLD') return '#bf1932'
 }
@@ -35,7 +31,7 @@ const Categories = ({ categories }) => {
         <p key={c.id}>
           <span
             style={{
-              backgroundColor: categoryColors[c.id],
+              backgroundColor: categoryColors[c.id % categoryColors.length],
               marginRight: '5px'
             }}
           >
@@ -60,8 +56,9 @@ const Legend = ({ categories }) => {
               marginRight: '5px'
             }}
           >
-            SOLD
+            S
           </span>
+          Verkauft
         </p>
         <p>
           <span
@@ -70,8 +67,9 @@ const Legend = ({ categories }) => {
               marginRight: '5px'
             }}
           >
-            RESERVED
+            R
           </span>
+          Reserviert
         </p>
       </div>
     </div>
