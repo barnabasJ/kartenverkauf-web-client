@@ -8,9 +8,8 @@ import {
   getEmail
 } from '@/src/utils/venue'
 
-export const CurrentVenue = ({ venue }) => {
-  console.log(venue)
-  return venue ? (
+export const CurrentVenue = ({ venue }) =>
+  venue ? (
     <div>
       <h3>Current Venue</h3>
       <div>
@@ -28,4 +27,3 @@ export const CurrentVenue = ({ venue }) => {
       Keine Veranstaltung ausgewaehlt, bitte klicken Sie auf eine Veranstaltung
     </h3>
   )
-}

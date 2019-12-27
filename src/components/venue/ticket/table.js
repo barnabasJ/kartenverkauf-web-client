@@ -1,9 +1,11 @@
 import _ from 'lodash'
+import Price from '@/src/components/price'
 
 const categoryColors = ['#5985c1', '#80c3e8', '#59afc1', '#94b1ee']
 
 const calcBackground = ticket => {
-  if (ticket.state == 'FREE') return categoryColors[ticket.category.id % categoryColors.length]
+  if (ticket.state == 'FREE')
+    return categoryColors[ticket.category.id % categoryColors.length]
   if (ticket.state == 'RESERVED') return '#666666'
   if (ticket.state == 'SOLD') return '#bf1932'
 }
@@ -37,7 +39,7 @@ const Categories = ({ categories }) => {
           >
             {c.id}:
           </span>
-          {c.price}
+          <Price price={c.price} />
         </p>
       ))}
     </div>

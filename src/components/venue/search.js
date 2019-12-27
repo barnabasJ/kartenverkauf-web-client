@@ -5,12 +5,10 @@ const VenueSearch = memo(({ genres, onSubmit }) => {
   const [formState, setFormState] = useState({})
   const onChange = useCallback(
     key => e => {
-      console.log('change')
       setFormState(_.set(formState, key, e.target.value))
     },
     [setFormState]
   )
-  console.log(formState)
   return (
     <form
       onSubmit={e => {

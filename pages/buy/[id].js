@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import { useRouter } from 'next/router'
-import { makeGetRequest, makePostRequest } from '@/src/components/request'
+import { makeGetRequest, makePostRequest } from '@/src/utils/request'
 import { CurrentVenue } from '@/src/components/venue/current'
 import TicketTable from '@/src/components/venue/ticket/table'
 import SelectedTickets from '@/src/components/venue/ticket/selected-tickets'

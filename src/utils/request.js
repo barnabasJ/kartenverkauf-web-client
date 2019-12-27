@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-unfetch'
-import config from './config'
+import config from '../components/config'
 
 export const makeGetRequest = async path => {
   const res = await fetch(`${config.api}${path}`)

@@ -4,7 +4,6 @@ const CheckOutForm = ({ onSubmit }) => {
   const [formState, setFormState] = useState({})
   const onChange = useCallback(
     key => e => {
-      console.log('change')
       setFormState(_.set(formState, key, e.target.value))
     },
     [setFormState]

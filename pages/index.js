@@ -3,7 +3,7 @@ import _ from 'lodash'
 import { VenueTable } from '@/src/components/venue/table'
 import { CurrentVenue } from '@/src/components/venue/current'
 import VenueSearch from '../src/components/venue/search'
-import { makeGetRequest, makePostRequest } from '@/src/components/request'
+import { makeGetRequest, makePostRequest } from '@/src/utils/request'
 import Link from 'next/link'
 
 const buildQuery = formData =>
@@ -29,7 +29,6 @@ const Index = ({ venues, genres }) => {
       const venues = await makeGetRequest(
         buildSearchPath('/venue/search', formData)
       )
-      console.log(venues)
       setCurrentVenues(venues)
     },
     [setCurrentVenues]
