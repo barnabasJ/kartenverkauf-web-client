@@ -2,20 +2,20 @@ import { useState, useCallback, memo } from 'react'
 import _ from 'lodash'
 
 const VenueSearch = memo(({ genres, onSubmit }) => {
-  const [fromState, setFormState] = useState({})
+  const [formState, setFormState] = useState({})
   const onChange = useCallback(
     key => e => {
       console.log('change')
-      setFormState(_.set(fromState, key, e.target.value))
+      setFormState(_.set(formState, key, e.target.value))
     },
     [setFormState]
   )
-  console.log(fromState)
+  console.log(formState)
   return (
     <form
       onSubmit={e => {
         e.preventDefault()
-        return onSubmit(fromState, e)
+        return onSubmit && onSubmit(formState, e)
       }}
     >
       <div className='form-group'>
@@ -26,7 +26,7 @@ const VenueSearch = memo(({ genres, onSubmit }) => {
           id='description'
           aria-describedby='description'
           onChange={onChange('description')}
-          value={fromState.description}
+          value={formState.description}
         />
       </div>
       <div className='form-group'>
@@ -37,14 +37,14 @@ const VenueSearch = memo(({ genres, onSubmit }) => {
           id='artist'
           aria-describedby='artist'
           onChange={onChange('artist')}
-          value={fromState.artist}
+          value={formState.artist}
         />
       </div>
       {genres && (
         <div className='form-group'>
           <label htmlFor='genre'>Genre</label>
           <select
-            value={fromState.genre}
+            value={formState.genre}
             onChange={onChange('genre')}
             defaultValue={''}
             className='custom-select'
@@ -68,7 +68,7 @@ const VenueSearch = memo(({ genres, onSubmit }) => {
           aria-describedby='from'
           value='2019-12-24'
           onChange={onChange('localDateTimeStart')}
-          value={fromState.localDateTimeStart}
+          value={formState.localDateTimeStart}
         />
       </div>
       <div className='form-group'>
@@ -80,7 +80,7 @@ const VenueSearch = memo(({ genres, onSubmit }) => {
           aria-describedby='to'
           value='2019-12-12'
           onChange={onChange('localDateTimeEnd')}
-          value={fromState.localDateTimeEnd}
+          value={formState.localDateTimeEnd}
         />
       </div>
       <button type='submit' className='btn btn-primary'>
