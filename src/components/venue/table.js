@@ -1,13 +1,22 @@
 import _ from 'lodash'
 import { getDate, getDescription, getArtists } from '@/src/utils/venue'
 
+const thStyle= {
+  backgroundColor: '#2196f3',
+  color:'white'
+};
+
+const tableStyle= {
+  width: '100%'
+};
+
 export const VenueTable = ({ venues, onClick }) => (
-  <table>
+  <table style={tableStyle}>
     <thead>
       <tr>
-        <td>Datum</td>
-        <td>Bezeichnung</td>
-        <td>Artist</td>
+        <th style={thStyle}>Datum</th>
+        <th style={thStyle}>Bezeichnung</th>
+        <th style={thStyle}>Artist</th>
       </tr>
     </thead>
     <tbody>
