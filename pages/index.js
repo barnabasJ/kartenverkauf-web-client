@@ -61,10 +61,10 @@ const Index = ({ venues, genres }) => {
 }
 
 Index.getInitialProps = async () => {
-  const [venues, genres] = await Promise.all([
-    makeGetRequest('/venue'),
-    makeGetRequest('/genre')
-  ])
+        const [venues, genres] = await Promise.all([
+            makeGetRequest('/venue'),
+            makeGetRequest('/genre')
+        ])
 
   return {
     venues,
